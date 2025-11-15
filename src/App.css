@@ -25,14 +25,18 @@ html {
 }
 
 .slider-container {
-  padding: 1.5rem 2rem;
-  background-color: var(--Black);
   display: flex;
   width: fit-content;
-  gap: 5rem;
   position: absolute;
   bottom: 2px;
   right: 0;
+}
+
+.left-arrow,
+.right-arrow {
+  background-color: var(--Black);
+  padding: 1.5rem 2rem;
+  cursor: pointer;
 }
 
 .hero-img,
@@ -138,7 +142,7 @@ html {
   z-index: 800;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .product-catalogue {
     display: flex;
     width: 100%;
@@ -154,7 +158,7 @@ html {
   }
 
   .slider-container {
-    right: -118px;
+    right: -108px;
   }
 
   .about-info {
@@ -174,7 +178,7 @@ html {
 
   .company-summary {
     display: flex;
-    margin-bottom: 2rem;
+    margin-top: -2px;
   }
 
   .close,
@@ -182,7 +186,51 @@ html {
     display: none;
   }
 
+  .nav-logo {
+    margin: 0;
+  }
+
   .nav-list {
+    position: absolute;
+    z-index: 100;
+    background-color: transparent;
+    list-style: none;
     display: flex;
+    padding: 4rem 2rem;
+    margin-left: 6rem;
+    justify-content: flex-start;
+    gap: 4rem;
+  }
+
+  .nav-item {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--White);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .nav-item:hover::after {
+    content: "";
+    height: 1px;
+    width: 25px;
+    border-bottom: 2px solid var(--White);
+    margin-top: 2px;
+    transition: all 0.5s;
+  }
+
+  .shop-btn:hover {
+    color: var(--Grey-500);
+    transition: color 0.35s;
+    cursor: pointer;
+  }
+
+  .left-arrow:hover,
+  .right-arrow:hover {
+    background-color: var(--Grey-800);
   }
 }

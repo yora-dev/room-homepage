@@ -64,7 +64,7 @@ function App() {
             key={item.id}
           >
             <div className="slider-img">
-              <Header />
+              <Header width={width} />
 
               <img
                 src={width < 768 ? item.image.mobile : item.image.desktop}
@@ -75,18 +75,22 @@ function App() {
               />
 
               <div className="slider-container">
-                <img
-                  src={leftArrow}
-                  alt=""
-                  className="arrow left-arrow"
-                  onClick={handlePrev}
-                />
-                <img
-                  src={rightArrow}
-                  alt=""
-                  className="arrow right-arrow"
-                  onClick={handleNext}
-                />
+                <div className="left-arrow">
+                  <img
+                    src={leftArrow}
+                    alt=""
+                    className="arrow "
+                    onClick={handlePrev}
+                  />
+                </div>
+                <div className="right-arrow">
+                  <img
+                    src={rightArrow}
+                    alt=""
+                    className="arrow "
+                    onClick={handleNext}
+                  />
+                </div>
               </div>
             </div>
 

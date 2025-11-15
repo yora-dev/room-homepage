@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header() {
+function Header({ width }) {
   const [activeHeader, setActiveHeader] = useState(false);
   return (
     <div className="header">
@@ -21,7 +21,7 @@ function Header() {
         )}
         <img src="./src/assets/images/logo.svg" alt="" className="nav-logo" />
       </nav>{" "}
-      {activeHeader ? (
+      {activeHeader || width >= 768 ? (
         <ul className="nav-list">
           <li className="nav-item">home</li>
           <li className="nav-item">shop</li>
