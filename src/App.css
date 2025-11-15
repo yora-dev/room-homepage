@@ -13,6 +13,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
+  transition: all 0.35s ease;
 }
 
 html {
@@ -34,12 +35,14 @@ html {
   right: 0;
 }
 
-.hero-img {
+.hero-img,
+.about-img-dark,
+.about-img-light {
   width: 100%;
 }
 
 .product-info {
-  padding: 5rem 3rem;
+  padding: 5rem 3rem 0;
 }
 
 .product-header {
@@ -49,7 +52,8 @@ html {
   margin-bottom: 2rem;
 }
 
-.product-description {
+.product-description,
+.about-description {
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--Grey-500);
@@ -66,5 +70,57 @@ html {
   text-transform: uppercase;
   letter-spacing: 8px;
   font-size: 1.8rem;
-  margin: 4rem 0 8rem;
+  margin: 4rem 0 6rem;
+}
+
+.about-info {
+  padding: 4rem 3rem;
+}
+
+.about-header {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--Black);
+}
+
+.header {
+  position: relative;
+}
+
+.navbar {
+  position: absolute;
+  padding: 4rem 2rem 0;
+  display: flex;
+  width: 100%;
+}
+
+.nav-logo {
+  margin: 0 auto;
+}
+
+.nav-list {
+  position: absolute;
+  z-index: 100;
+  background-color: var(--White);
+  list-style: none;
+  display: flex;
+  width: 100%;
+  padding: 4rem 2rem;
+  justify-content: space-between;
+}
+
+.nav-item {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.nav-item:nth-child(1) {
+  margin-left: 6rem;
+}
+
+.close {
+  z-index: 200;
 }

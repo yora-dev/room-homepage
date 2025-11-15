@@ -21,9 +21,10 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
       <div className="product-catalogue">
         <div className="slider-img">
+          {" "}
+          <Header />
           <img
             src="./src/assets/images/mobile-image-hero-1.jpg"
             alt=""
@@ -67,7 +68,31 @@ function App() {
         </div>
       </div>
 
-      <div className="company-summary"></div>
+      <div className="company-summary">
+        <img
+          src=" ./src/assets/images/image-about-dark.jpg"
+          alt=""
+          className="about-img-dark"
+        />
+
+        <div className="about-info">
+          <h1 className="about-header">About our furniture</h1>
+
+          <p className="about-description">
+            Our multifunctional collection blends design and function to suit
+            your individual taste. Make each room unique, or pick a cohesive
+            theme that best express your interests and what inspires you. Find
+            the furniture pieces you need, from traditional to contemporary
+            styles or anything in between. Product specialists are available to
+            help you create your dream space.
+          </p>
+        </div>
+        <img
+          src=" ./src/assets/images/image-about-light.jpg"
+          alt=""
+          className="about-img-light"
+        />
+      </div>
     </>
   );
 }
