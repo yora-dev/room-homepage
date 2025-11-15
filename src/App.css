@@ -1,0 +1,70 @@
+/* Weights: 500, 600, 700 */
+/* Font size: 16px */
+
+:root {
+  --White: hsl(0, 100%, 100%);
+  --Grey-500: hsl(0, 0%, 63%);
+  --Grey-800: hsl(0, 0%, 27%);
+  --Black: hsl(0, 0%, 0%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.slider-img {
+  position: relative;
+}
+
+.slider-container {
+  padding: 1.5rem 2rem;
+  background-color: var(--Black);
+  display: flex;
+  width: fit-content;
+  gap: 5rem;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.product-info {
+  padding: 5rem 3rem;
+}
+
+.product-header {
+  font-size: 3rem;
+  color: var(--Black);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.product-description {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--Grey-500);
+  line-height: 1.5;
+}
+
+.shop-btn {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 1.8rem;
+  margin: 4rem 0 8rem;
+}
