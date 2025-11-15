@@ -2,9 +2,29 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 
+import rightArrow from "./assets/images/icon-angle-right.svg";
+import leftArrow from "./assets/images/icon-angle-left.svg";
+import arrow from "./assets/images/icon-arrow.svg";
+import darkImg from "./assets/images/image-about-dark.jpg";
+import lightImg from "./assets/images/image-about-light.jpg";
+
 function App() {
   const [items, setItems] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  function useBreakpoint() {
+    const [width, setWidth] = useState(window.innerWidth);
 
+    useEffect(() => {
+      const resizeListener = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", resizeListener);
+      return () => window.removeEventListener("resize", resizeListener);
+    }, []);
+
+    return width;
+  }
+  const width = useBreakpoint();
+
+  // const imageUrl = width < 768 ? images.mobile : images.desktop;
   async function fetchItems() {
     const res = await fetch("data.json");
     const data = await res.json();
@@ -15,65 +35,76 @@ function App() {
     }
   }
 
+  function handlePrev() {
+    if (currentSlide == 0) {
+      setCurrentSlide(items.length - 1);
+    } else setCurrentSlide(currentSlide - 1);
+  }
+
+  function handleNext() {
+    if (currentSlide == items.length - 1) {
+      setCurrentSlide(0);
+    } else setCurrentSlide(currentSlide + 1);
+  }
+
   useEffect(() => {
     fetchItems();
   }, []);
 
   return (
     <>
-      <div className="product-catalogue">
-        <div className="slider-img">
-          {" "}
-          <Header />
-          <img
-            src="./src/assets/images/mobile-image-hero-1.jpg"
-            alt=""
-            className="hero-img"
-          />
-          <div className="slider-container">
-            <img
-              src="./src/assets/images/icon-angle-left.svg"
-              alt=""
-              className="arrow left-arrow"
-            />
-            <img
-              src=" ./src/assets/images/icon-angle-right.svg"
-              alt=""
-              className="arrow right-arrow"
-            />
+      {items.map((item, index) => {
+        return (
+          <div
+            className={
+              currentSlide == index
+                ? "visible product-catalogue"
+                : "invisible product-catalogue "
+            }
+            key={item.id}
+          >
+            <div className="slider-img">
+              <Header />
+
+              <img
+                src={width < 768 ? item.image.mobile : item.image.desktop}
+                alt=""
+                className={
+                  width < 768 ? "hero-img hero-mobile" : "hero-img hero-desktop"
+                }
+              />
+
+              <div className="slider-container">
+                <img
+                  src={leftArrow}
+                  alt=""
+                  className="arrow left-arrow"
+                  onClick={handlePrev}
+                />
+                <img
+                  src={rightArrow}
+                  alt=""
+                  className="arrow right-arrow"
+                  onClick={handleNext}
+                />
+              </div>
+            </div>
+
+            <div className="product-info">
+              <h1 className="product-header">{item.header}</h1>
+
+              <p className="product-description">{item.description}</p>
+
+              <button className="shop-btn">
+                Shop now <img src={arrow} alt="" className="shop-img" />
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="product-info">
-          <h1 className="product-header">
-            Discover innovative ways to decorate
-          </h1>
-
-          <p className="product-description">
-            We provide unmatched quality, comfort, and style for property owners
-            across the country. Our experts combine form and function in
-            bringing your vision to life. Create a room in your own style with
-            our collection and make your property a reflection of you and what
-            you love.
-          </p>
-
-          <button className="shop-btn">
-            Shop now{" "}
-            <img
-              src=" ./src/assets/images/icon-arrow.svg"
-              alt=""
-              className="shop-img"
-            />
-          </button>
-        </div>
-      </div>
+        );
+      })}
 
       <div className="company-summary">
-        <img
-          src=" ./src/assets/images/image-about-dark.jpg"
-          alt=""
-          className="about-img-dark"
-        />
+        <img src={darkImg} alt="" className="about-img-dark" />
 
         <div className="about-info">
           <h1 className="about-header">About our furniture</h1>
@@ -87,11 +118,7 @@ function App() {
             help you create your dream space.
           </p>
         </div>
-        <img
-          src=" ./src/assets/images/image-about-light.jpg"
-          alt=""
-          className="about-img-light"
-        />
+        <img src={lightImg} alt="" className="about-img-light" />
       </div>
     </>
   );

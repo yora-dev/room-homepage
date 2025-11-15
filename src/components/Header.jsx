@@ -29,6 +29,7 @@ function Header() {
           <li className="nav-item">contact</li>
         </ul>
       ) : null}
+      {activeHeader && <div className="modal"></div>}
     </div>
   );
 }

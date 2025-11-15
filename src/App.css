@@ -45,6 +45,10 @@ html {
   padding: 5rem 3rem 0;
 }
 
+.invisible {
+  display: none;
+}
+
 .product-header {
   font-size: 3rem;
   color: var(--Black);
@@ -123,4 +127,62 @@ html {
 
 .close {
   z-index: 200;
+}
+
+.modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 95px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 800;
+}
+
+@media screen and (min-width: 768px) {
+  .product-catalogue {
+    display: flex;
+    width: 100%;
+    margin: 0;
+  }
+
+  .invisible {
+    display: none;
+  }
+
+  .slider-img {
+    flex: 1.8;
+  }
+
+  .slider-container {
+    right: -118px;
+  }
+
+  .about-info {
+    padding: 5rem 5rem;
+    flex: 1;
+  }
+
+  .about-img-dark,
+  .about-img-light {
+    flex: 1;
+  }
+
+  .product-info {
+    flex: 1;
+    padding: 8rem 10rem 0;
+  }
+
+  .company-summary {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .close,
+  .hamburger {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+  }
 }
